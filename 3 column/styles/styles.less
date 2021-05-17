@@ -1,0 +1,109 @@
+/*Media Query Variables*/
+@mobile: ~"only screen and (min-width: 320px) and (max-width: 529px)";
+@tablet: ~"only screen and (min-width: 530px) and (max-width: 949px)";
+@desktop: ~"only screen and (min-width: 950px)";
+
+
+/*colour variables*/
+@primary-color: #532900dc;
+@secondary-color: #20798f;
+@accent: #377e4eb4;
+
+/*font sizing variable*/
+@defaultFontSize: 20px;
+
+/*main styling for webpage*/
+body {
+  background-color: @accent;
+  font-family: Arial, Helvetica, sans-serif;
+  color: lighten(@secondary-color, 50%);
+  margin: 5em 2em;
+  text-align: center;
+}
+
+/*button styling for all buttons*/
+.button {
+  background-color: @secondary-color;
+  font-size: @defaultFontSize;
+  text-align: center;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  color: white;
+
+  &:hover {
+    background-color: darken(@primary-color, 20%);
+  }
+}
+
+/*main content section*/
+.container {
+  display: flex;
+  margin: 10px 10px;
+
+}
+
+.card {
+  margin: 10px;
+  width: 100%;
+  background: #532900dc;
+  border-radius: 15px;
+  text-align: center;
+
+  .card__image {
+    width: 70%;
+    border-radius: 15px;
+  }
+
+
+  .card__image--hidden {
+    display: none;
+  }
+
+
+  .card__list {
+    text-align: left;
+    list-style-type: none;
+    font-size: 15px;
+  }
+
+  .card__button {
+    &:extend(.button);
+  }
+
+  .card__button:hover {
+    background-color: #175665;
+  }
+
+}
+
+/*toggle button to hide column*/
+.toggle__button {
+  align-self: center;
+  &:extend(.button);
+  width: 30%;
+
+  &:hover {
+    background-color: @primary-color;
+  }
+
+}
+
+
+/* MEDIA QUERIES */
+
+
+@media @mobile,
+@tablet {
+  .container {
+    flex-direction: column;
+  }
+  .toggle__button{
+    width: 100px;
+    font-size: @defaultFontSize - 5 ;
+  }
+}
+
+
+
